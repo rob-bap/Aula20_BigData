@@ -58,20 +58,25 @@ except Exception as e:
     print(f'Erro ao calcular medidas: {e}')
 
 try:
-    plt.figure(figsize=(18, 8))
-    plt.subplots(2, 1)
+    # plt.figure(figsize=(18, 8))
+    plt.subplots(2, 1, figsize=(18, 10))
     plt.subplot(2, 1, 1)
-    plt.boxplot(array_estelionato, vert = False, showmeans = True) # vert = ativa ou desativa posição vertical, showmeans = ativa ou desativa mostrar media
+    # showmeans = True  -  retira os ouliers
+    plt.boxplot(array_estelionato, vert = False) # vert = ativa ou desativa posição vertical, showmeans = ativa ou desativa mostrar media
+    plt.title('Boxplot da Distribuição')
 
     plt.subplot(2, 1, 2)
-    plt.text(0.1, 0.9, f'Média: {media_estelionato}')
-    plt.text(0.1, 0.8, f'Mediana: {mediana_estelionato}')
-    plt.text(0.1, 0.7, f'Distancia: {distancia}')
-    plt.text(0.1, 0.6, f'IQR: {iqr}')
-    plt.text(0.1, 0.5, f'Limite Superior: {limite_superior}')
-    plt.text(0.1, 0.4, f'Limite Inferior: {limite_inferior}')
+    plt.text(0.1, 0.7, f'Média: {media_estelionato}')
+    plt.text(0.1, 0.6, f'Mediana: {mediana_estelionato}')
+    plt.text(0.1, 0.5, f'Distancia: {distancia}')
+    plt.text(0.1, 0.4, f'IQR: {iqr}')
+    plt.text(0.1, 0.3, f'Limite Superior: {limite_superior}')
+    plt.text(0.1, 0.2, f'Limite Inferior: {limite_inferior}')
+    plt.text(0.1, 0.1, f'Q1: {q1}')
+    plt.text(0.1, 0.0, f'Q3: {q3}')
 
-
+    plt.axis('off')
+    plt.title('Medidas da Distribuição')
 
     plt.show()
 
